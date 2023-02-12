@@ -5,7 +5,7 @@ var age = 17;
 var name = "Ewa";
 var sex = "female";
 
-// implementing loop for
+// implementing if
 
 if (age < 18 && name == "Ewa" && sex == "female")
 {
