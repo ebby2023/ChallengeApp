@@ -1,18 +1,29 @@
-﻿// This is my first project
-// Implementing veriables 
+﻿string name = "Ewa";
+bool male = true;
+bool female = false;
 
-var age = 17;
-var name = "Ewa";
-var sex = "female";
+var age = 47;
+var age1 = 33;
+var age2 = 17;
 
-// implementing if
 
-if (age < 18 && name == "Ewa" && sex == "female")
+if (female == false && age < 30)
 {
-    Console.WriteLine($"Your name is {name}. You are {sex}. You are not adult yet.");
+    Console.WriteLine("You are woman.You are under 30.");
 }
-else if (age >= 18 && name == "Ewa" && sex == "female")
+
+else if (name == "Ewa" && age1 == 32)
 {
-    Console.WriteLine($"Your name is {name}.You are {sex}. You are adult");
+    Console.WriteLine("You are Ewa. You are 33.");
+}
+
+else if(male == true && age2 <18)
+{
+    Console.WriteLine("You are a man. You are under 18.");
+}
+
+else
+{
+    Console.WriteLine("You are not classified on my list");
 }
 
