@@ -1,80 +1,45 @@
-﻿int number = 65658787;
+﻿using ChallegeApp;
+using System.Net.Cache;
 
-string numberAsString = number.ToString();
+Employee employee1= new Employee("Mike","Wedler", 33);
+Employee employee2= new Employee("Cris","Strong",43);
+Employee employee3= new Employee("Elizabeth","Sun",27);
 
-char[] letters = numberAsString.ToCharArray();
+employee1.AddScore(4);
+employee1.AddScore(3);
+employee1.AddScore(2);
+employee1.AddScore(7);
+employee1.AddScore(4);
 
-Console.WriteLine($" Liczba {number} - ilosc cyfr w liczbie ");
-Console.WriteLine( );
+employee2.AddScore(3);
+employee2.AddScore(3);
+employee2.AddScore(3);
+employee2.AddScore(5);
+employee2.AddScore(1);
+employee2.AddScore(2);
 
-int counter0 = 0;
-int counter1 = 0;
-int counter2 = 0;
-int counter3 = 0;
-int counter4 = 0;
-int counter5 = 0;
-int counter6 = 0;
-int counter7 = 0;
-int counter8 = 0;
-int counter9 = 0;
-foreach (char letter in letters)
+employee3.AddScore(5);
+employee3.AddScore(5);
+employee3.AddScore(1);
+employee3.AddScore(1);
+employee3.AddScore(5);
+employee3.AddScore(3);
 
+List<Employee> employees = new List<Employee>()
 {
-    if (letter == '0')
-    {
-        counter0++;
+    employee1, employee2, employee3
+};
 
-    }
-    if (letter =='1') 
-    {
-        counter1++;
-    }
-    if (letter == '2')
-    {
-        counter2++;
-    }
-    if (letter == '3')
-    {
-        counter3++;
-    }
-    if (letter == '4')
-    {
-        counter4++;
-    }
-    if (letter == '5')
-    {
-        counter5++;
+int maxResult = -1;
+Employee employeeWithMaxResult = null;
 
-    }
-    if (letter == '6')
-    {
-        counter6++;
-    }
-    if (letter == '7')
-    {
-        counter7++;
-    }
-    if (letter == '8')
-    {
-        counter8++;
-    }
-    if(letter == '9')
-    {
-        counter9++;
-    }
+foreach(var Employee in employees)
+{
+    if (Employee.Result > maxResult)
+        employeeWithMaxResult = Employee;
+        maxResult = Employee.Result;
 }
 
-Console.WriteLine("0 ==> " + counter0);
-Console.WriteLine("1 ==> " + counter1);
-Console.WriteLine("2 ==> " + counter2);
-Console.WriteLine("3 ==> " + counter3);
-Console.WriteLine("4 ==> " + counter4);
-Console.WriteLine("5 ==> " + counter5);
-Console.WriteLine("6 ==> " + counter6);
-Console.WriteLine("7 ==> " + counter7);
-Console.WriteLine("8 ==> " + counter8);
-Console.WriteLine("9 ==> " + counter9);
+Console.WriteLine("Pracownik z najwieksza liczba punktow to:" + employeeWithMaxResult.Name +  maxResult  + "punktow");
+Console.WriteLine("Wiek" + employeeWithMaxResult.Age + "nazwisko" + employeeWithMaxResult.Surname);
 
-
-
-   
