@@ -1,42 +1,60 @@
+
+
 namespace ChallengeApp.test
 {
     public class EmployeeTest
     {
 
         [Test]
-        public void WhenEmployeeAddedScoreAndGetCorrectResult()
+        public void WhenUsedStatistics_ShouldReturnCorrectMax()
         {
-            // Arrange
-            var employee = new Employee("Adam", "Duzy", 25);
-            employee.AddScore(4);
-            employee.AddScore(3);
-            employee.AddScore(7);
-            employee.AddScore(2);
-            employee.AddScore(4);
+            // arrange
+            var employee = new Employee("Marek", "Duzy");
+            employee.AddGrade(3);
+            employee.AddGrade(6);
+            employee.AddGrade(3);
 
-            // Act
-            var result = employee.Result;
+            // act
 
-            // Assert
+            var result = employee.GetStatistics();
 
-            Assert.AreEqual(20, result);
+            // assert 
+
+            Assert.AreEqual(6, result.Max);
+
+
         }
         [Test]
-        public void WhenEmployessAddeNegativeScoreAndGetCorrectResult()
+        public void WhenUsedStatistics_ShouldReturnCorrectMin()
         {
-            //Arange
-            var employee = new Employee("Michal", "Materla", 35);
-            employee.AddScore(4);
-            employee.AddScore(-2);
-            employee.AddScore(-1);
-            employee.AddScore(4);
-            employee.AddScore(5);
+            // arrange
+            var employee = new Employee("Michal", "Break");
+            employee.AddGrade(3);
+            employee.AddGrade(8);
+            employee.AddGrade(1);
 
-            // Act
-            var result = employee.Result;
+            // act 
+            var result = employee.GetStatistics();
 
-            // Arrange
-            Assert.AreEqual(10, result);
+            // assert
+
+            Assert.AreEqual(1, result.Min);
+        }
+        [Test]
+        public void WhenUsedStatistics_ShouldReturnCorrectAvarage()
+        {
+            // arrange
+            var employee = new Employee("Marian", "Lyzwa");
+            employee.AddGrade(7);
+            employee.AddGrade(1);
+            employee.AddGrade(2);
+
+            // act
+            var result = employee.GetStatistics();
+
+            // assert
+
+            Assert.AreEqual(Math.Round(3.33, 2), Math.Round(result.Average, 2));
         }
 
     }
