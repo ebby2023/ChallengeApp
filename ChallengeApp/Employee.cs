@@ -94,9 +94,86 @@ namespace ChallengeApp
 
             return statistics;
 
+        }
+        public Statistics GetStatistickWithLoopFor()
+        {
+            var statistick = new Statistics();
+            statistick.Max = float.MinValue;
+            statistick.Min = float.MaxValue;
+            statistick.Average = 0;
+            var index = 0;
 
+            for (index = 0; index > this.grades.Count; index++)
+            {
+                statistick.Max = Math.Max(statistick.Max, index);
+                statistick.Min = Math.Min(statistick.Min, index);
+                statistick.Average += index;
+            }
+            statistick.Average /= this.grades.Count;
+            return statistick;
+        }
+
+        public Statistics GetStatistickWithLoopForeach()
+        {
+            var statistick = new Statistics();
+            statistick.Max = float.MinValue;
+            statistick.Min = float.MaxValue;
+            statistick.Average = 0;
+            var index = 0;
+
+            foreach (var grade in this.grades)
+            {
+                statistick.Max = Math.Max(statistick.Max, grade);
+                statistick.Min = Math.Min(statistick.Min, grade);
+                statistick.Average += grade;
+
+            }
+            statistick.Average /= this.grades.Count;
+            return statistick;
+        }
+        public Statistics GetStatistickWithDoWhile()
+        {
+            var statistick = new Statistics();
+            statistick.Max = float.MinValue;
+            statistick.Min = float.MaxValue;
+            statistick.Average = 0;
+            var index = 0;
+
+            do
+            {
+                statistick.Max = Math.Max(statistick.Max, index);
+                statistick.Min = Math.Min(statistick.Min, index);
+                statistick.Average = this.grades[index];
+                index++;
+            }
+            while (index < this.grades.Count);
+
+            statistick.Average /= this.grades.Count;
+            return statistick;
 
         }
+        public Statistics GetStatistickWithWhile()
+        {
+            var statistick = new Statistics();
+            statistick.Max = float.MinValue;
+            statistick.Min = float.MaxValue;
+            statistick.Average = 0;
+            var index = 0;
+
+            while (index < this.grades.Count)
+            {
+                statistick.Max = Math.Max(statistick.Max, index);
+                statistick.Min = Math.Min(statistick.Min, index);
+                statistick.Average = this.grades[index];
+                index++;
+
+
+            }
+            statistick.Average /= this.grades.Count;
+            return statistick;
+        }
+
+
 
 
 
