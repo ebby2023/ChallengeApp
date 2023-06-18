@@ -1,54 +1,37 @@
 ﻿using ChallengeApp;
 
-var employee1 = new Employee("Michal", "Materla");
-employee1.AddGrade("Adam");
-employee1.AddGrade("4000");
-employee1.AddGrade(35f);
-employee1.AddGrade(4);
-employee1.AddGrade(2);
-
-
-
-
-//var statistics1 = employee1.GetStatistics();
-
-//Console.WriteLine($"Average: {statistics1.Average:N2}");
-//Console.WriteLine($"Max: {statistics1.Max}");
-//Console.WriteLine($"Min: {statistics1.Min}");
-
-var statistick2 = employee1.GetStatistickWithLoopForeach();
-
+Console.WriteLine("Welcome in DBS.We trust your opinion.");
+Console.WriteLine("________________________________________");
 Console.WriteLine("");
 
-Console.WriteLine("Statisticks with loop foreach");
-Console.WriteLine("-----------------");
-Console.WriteLine($"Average : {statistick2.Average:N2}");
-Console.WriteLine($"Max : {statistick2.Max}");
-Console.WriteLine($"Min : {statistick2.Min}");
+var employee1 = new Employee("Mike", "Tyson");
 
-Console.WriteLine("");
 
-var statistick3 = employee1.GetStatistickWithLoopFor();
-Console.WriteLine("Statisticks with loop for");
-Console.WriteLine("-----------------");
-Console.WriteLine($"Average : {statistick2.Average:N2}");
-Console.WriteLine($"Max : {statistick2.Max}");
-Console.WriteLine($"Min : {statistick2.Min}");
+while (true)
 
-Console.WriteLine("");
+{
+    Console.WriteLine("Please enter the value for emploeyee");
+    Console.Write("Press q to close. Thank you!! ");
+    var employeeInput = Console.ReadLine();
+    if (employeeInput == "q")
+    {
+        break;
+    }
+    employee1.AddGrade(employeeInput);
+}
 
-var statistick4 = employee1.GetStatistickWithDoWhile();
-Console.WriteLine("Statisticks with do while");
-Console.WriteLine("-----------------");
-Console.WriteLine($"Average : {statistick2.Average:N2}");
-Console.WriteLine($"Max : {statistick2.Max}");
-Console.WriteLine($"Min : {statistick2.Min}");
+var statistics = employee1.GetStatistics();
+Console.WriteLine($" Employee average : {statistics.Average}");
+Console.WriteLine($" Employee Min : {statistics.Min}");
+Console.WriteLine($" Employee Max : {statistics.Max}");
 
-Console.WriteLine("");
 
-var statistick5 = employee1.GetStatistickWithWhile();
-Console.WriteLine("Statisticks with while");
-Console.WriteLine("-----------------");
-Console.WriteLine($"Average : {statistick2.Average:N2}");
-Console.WriteLine($"Max : {statistick2.Max}");
-Console.WriteLine($"Min : {statistick2.Min}");
+
+
+
+
+
+
+
+
+

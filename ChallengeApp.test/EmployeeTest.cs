@@ -41,21 +41,44 @@ namespace ChallengeApp.test
             Assert.AreEqual(1, result.Min);
         }
         [Test]
-        public void WhenUsedStatistics_ShouldReturnCorrectAvarage()
+
+
+
+        public void WhenEmployeeGetPoint_ShouldReceivedCorrectNumber()
         {
             // arrange
-            var employee = new Employee("Marian", "Lyzwa");
-            employee.AddGrade(7);
-            employee.AddGrade(1);
-            employee.AddGrade(2);
+            var employee = new Employee("Adam", "Malysz");
+            employee.AddGrade(90);
+            employee.AddGrade('b');
+            employee.AddGrade('c');
 
-            // act
-            var result = employee.GetStatistics();
+            //act
+            var statistick = employee.GetStatistics();
 
             // assert
 
-            Assert.AreEqual(Math.Round(3.33, 2), Math.Round(result.Average, 2));
-        }
+            Assert.AreEqual('B', statistick.AverageLetter);
 
+        }
+        [Test]
+        public void EmployeeGetGrades_ShouldReturnedGoodMaxAndMinValue()
+        {
+            //arrange
+            var employee = new Employee("Marek", "Bak");
+            employee.AddGrade(60);
+            employee.AddGrade("60");
+            employee.AddGrade("A");
+            employee.AddGrade('a');
+
+            //act
+            var statistick = employee.GetStatistics();
+
+            //assert
+            Assert.AreEqual(100, statistick.Max);
+            Assert.AreEqual(60, statistick.Min);
+
+
+        }
     }
+
 }
