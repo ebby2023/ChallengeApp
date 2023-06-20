@@ -1,5 +1,7 @@
 ﻿
 
+using System.Data;
+
 namespace ChallengeApp
 
 {
@@ -37,7 +39,7 @@ namespace ChallengeApp
             else
 
             {
-                Console.WriteLine("Ivalid grade value");
+                throw new Exception("Invalid great value");
             }
 
 
@@ -51,7 +53,7 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine("String is not float");
+                throw new Exception("String is not float");
             }
         }
         public void AddGrade(int grade)
@@ -90,100 +92,61 @@ namespace ChallengeApp
             }
             statistics.Average /= this.grades.Count;
 
+            switch (statistics.Average)
+            {
+                case var average when average >= 80:
+                    statistics.AverageLetter = 'A';
+                    break;
+                case var average when average >= 60:
+                    statistics.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    statistics.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    statistics.AverageLetter = 'D';
+                    break;
+                default:
+                    statistics.Average = 'E';
+                    break;
+
+            }
+
 
 
             return statistics;
 
         }
-        public Statistics GetStatistickWithLoopFor()
+        public void AddGrade(char grade)
         {
-            var statistick = new Statistics();
-            statistick.Max = float.MinValue;
-            statistick.Min = float.MaxValue;
-            statistick.Average = 0;
-            var index = 0;
-
-            for (index = 0; index > this.grades.Count; index++)
+            switch (grade)
             {
-                statistick.Max = Math.Max(statistick.Max, index);
-                statistick.Min = Math.Min(statistick.Min, index);
-                statistick.Average += index;
-            }
-            statistick.Average /= this.grades.Count;
-            return statistick;
-        }
-
-        public Statistics GetStatistickWithLoopForeach()
-        {
-            var statistick = new Statistics();
-            statistick.Max = float.MinValue;
-            statistick.Min = float.MaxValue;
-            statistick.Average = 0;
-            var index = 0;
-
-            foreach (var grade in this.grades)
-            {
-                statistick.Max = Math.Max(statistick.Max, grade);
-                statistick.Min = Math.Min(statistick.Min, grade);
-                statistick.Average += grade;
-
-            }
-            statistick.Average /= this.grades.Count;
-            return statistick;
-        }
-        public Statistics GetStatistickWithDoWhile()
-        {
-            var statistick = new Statistics();
-            statistick.Max = float.MinValue;
-            statistick.Min = float.MaxValue;
-            statistick.Average = 0;
-            var index = 0;
-
-            do
-            {
-                statistick.Max = Math.Max(statistick.Max, index);
-                statistick.Min = Math.Min(statistick.Min, index);
-                statistick.Average = this.grades[index];
-                index++;
-            }
-            while (index < this.grades.Count);
-
-            statistick.Average /= this.grades.Count;
-            return statistick;
-
-        }
-        public Statistics GetStatistickWithWhile()
-        {
-            var statistick = new Statistics();
-            statistick.Max = float.MinValue;
-            statistick.Min = float.MaxValue;
-            statistick.Average = 0;
-            var index = 0;
-
-            while (index < this.grades.Count)
-            {
-                statistick.Max = Math.Max(statistick.Max, index);
-                statistick.Min = Math.Min(statistick.Min, index);
-                statistick.Average = this.grades[index];
-                index++;
+                case 'A':
+                case 'a':
+                    this.grades.Add(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.grades.Add(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.grades.Add(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.grades.Add(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.grades.Add(20);
+                    break;
+                default:
+                    throw new Exception("String is not float");
 
 
             }
-            statistick.Average /= this.grades.Count;
-            return statistick;
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }
