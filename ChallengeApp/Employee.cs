@@ -2,31 +2,20 @@
 namespace ChallengeApp
 
 {
-    public class Employee : Person
+    public class Employee : IEmployee
     {
         private List<float> grades = new List<float>();
 
-        public Employee()
-            : this("No name", "No surname", 'x', 0)
-        {
-        }
-        public Employee(string name)
-            : this(name, "No surname", 'x', 0)
-        {
-        }
         public Employee(string name, string surname, int age)
-            : this(name, surname, 'x', age)
         {
+            this.Name = name; this.Surname = surname; this.Age = age;
         }
+        public string Name { get; private set; }
 
-        public Employee(string name, string surname)
-            : this(name, surname, 'x', 0)
-        {
-        }
-        public Employee(string name, string surname, char sex, int age)
-            : base(name, surname, sex, age)
-        {
-        }
+        public string Surname { get; private set; }
+
+        public int Age { get; private set; }
+
         public void AddGrade(float grade)
 
         {
