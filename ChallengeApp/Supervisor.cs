@@ -1,4 +1,6 @@
-﻿namespace ChallengeApp
+﻿using System.Globalization;
+
+namespace ChallengeApp
 {
     internal class Supervisor : IEmployee
 
@@ -31,22 +33,50 @@
         }
         public void AddGrade(double grade)
         {
-            throw new NotImplementedException();
+            float doubleFloat = (float)grade;
+            this.AddGrade(doubleFloat);
         }
 
         public void AddGrade(long grade)
         {
-            throw new NotImplementedException();
+            float longFloat = (float)grade;
+            this.AddGrade(longFloat);
         }
 
         public void AddGrade(int grade)
         {
-            throw new NotImplementedException();
+            float intAsFloat = (float)grade;
+            this.AddGrade(intAsFloat);
         }
 
         public void AddGrade(char grade)
         {
-            throw new NotImplementedException();
+            switch (grade)
+            {
+                case 'A':
+                case 'a':
+                    this.AddGrade(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.AddGrade(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.AddGrade(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.AddGrade(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.AddGrade(20);
+                    break;
+                default:
+                    throw new Exception("Wrong letter.Plese Enter letter from (A,a) to (E,e)");
+                    break;
+            }
         }
 
         public Statistics GetStatistics()
